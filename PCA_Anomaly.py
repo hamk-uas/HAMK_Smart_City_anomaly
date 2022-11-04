@@ -44,7 +44,7 @@ plt.show()
 
 # Extract the names of the numerical columns
 names = df_tempclean.columns
-x = df_tempclean[names]
+x = df_tempclean
 # Standardize/scale the dataset and apply PCA
 scaler = StandardScaler()
 pca = PCA()
@@ -61,12 +61,14 @@ _ = plt.title("Importance of the Principal Components based on inertia")
 plt.show()
 
 # Calculate PCA with 2 components
+scaler = StandardScaler()
 pca = PCA(n_components = 2)
-principalComponents = pca.fit_transform(x)
+pipeline = make_pipeline(scaler, pca)
+principalComponents = pipeline.fit_transform(x)
 principalDf = pd.DataFrame(data = principalComponents, columns = ['pc1', 'pc2'])
 
 # Reconstruct from the 2 dimensional scores
-reconstruct = pca.inverse_transform(principalComponents)
+reconstruct = pipeline.inverse_transform(principalComponents)
 #The residual is the amount not explained by the first two components
 residual = df_tempclean - reconstruct
 
