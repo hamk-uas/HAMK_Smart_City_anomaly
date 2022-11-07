@@ -81,14 +81,13 @@ for n_components_index, n_components in enumerate(n_components_list):
 
 #print(result_table_total_var)
 #print(result_table_individual)
-print([n_components_list[0], n_components_list[-1], threshold_list[0], threshold_list[-1]])
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-plt.imshow(result_table_total_var, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5]) # , cmap=plt.cm.ocean
+plt.imshow(result_table_total_var, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin='lower') # , cmap=plt.cm.ocean
 plt.colorbar()
 plt.show()
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-plt.imshow(result_table_individual, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5]) # , cmap=plt.cm.ocean
+plt.imshow(result_table_individual, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin='lower') # , cmap=plt.cm.ocean
 plt.colorbar()
 plt.show()
