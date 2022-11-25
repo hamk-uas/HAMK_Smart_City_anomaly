@@ -43,8 +43,8 @@ df_tempclean_train = df_tempclean[(df_tempclean.index >= "2021-12-01") & (df_tem
 # Test data
 df_tempclean_test = df_tempclean[(df_tempclean.index >= "2022-02-17") & (df_tempclean.index < "2022-03-16")]
 # Vizualize time series in the graph for each device
-his = df_tempclean_train.hist(df_tempclean_train.columns, bins = 25, layout = (8, 8), figsize = (18, 18))
-plt.show()
+#his = df_tempclean_test.hist(df_tempclean_test.columns, bins = 25, layout = (8, 8), figsize = (18, 18))
+#plt.show()
 #plt.savefig(his)
 
 # Extract the names of the numerical columns
