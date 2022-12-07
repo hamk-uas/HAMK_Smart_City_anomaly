@@ -63,9 +63,9 @@ df_anomalous = df_anomalous.rolling(100).mean()*2  # Apply a rolling avg to smoo
 
 # Append test data and anomalous data as 'contaminated' data
 df_contaminated = df_tempclean_test.append(df_anomalous).append(df_tempclean_test.tail(anomalous_len)).interpolate(method = 'linear')
-#df_contaminated.plot(title = 'contaminated data')
+df_contaminated.plot(title = 'contaminated data')
 #his = df_contaminated.hist(df_contaminated.columns, bins = 25, layout = (8, 8), figsize = (18, 18))
-#plt.show()
+plt.show()
 
 
 #df_tempclean_train, df_tempclean_test, label_train, label_test = train_test_split(df_tempclean, label, test_size = 0.2)
