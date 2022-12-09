@@ -6,9 +6,12 @@ To run this script, need to keep data and the script in the same folder.
 Input:    
     data - Time series data without N/A and null value
 
+
 Output:
     plot - Histogram for clean data 
          - Sensor data and residual plot with Anomaly
+         - Colour bar plot for total variance and individual variance
+
 """
 
 import numpy as np
@@ -47,7 +50,7 @@ df_tempclean = df_tempclean[(df_tempclean.index >= "2021-12-01") & (df_tempclean
 names = df_tempclean.columns
 x = df_tempclean
 # Standardize/scale the dataset and apply PCA
-
+# To see the importance of PC's, need to uncomment below code
 #features = range(pca.n_components_)
 #_ = plt.figure(figsize=(22, 5))
 #_ = plt.bar(features, pca.explained_variance_)
@@ -70,7 +73,7 @@ for n_components_index, n_components in enumerate(n_components_list):
     # Reconstruct from the n dimensional scores
     reconstruct = pipeline.inverse_transform(principalComponents)
     #The residual is the amount not explained by the first n components
-    scaled_residual = pd.DataFrame(data = scaler.transform(x) - pca.inverse_transform(principalComponents), index = df_tempclean.index, columns=df_tempclean.columns)
+    scaled_residual = pd.DataFrame(data = scaler.transform(x) - pca.inverse_transform(principalComponents), index = df_tempclean.index, columns = df_tempclean.columns)
 
     for threshold_index, threshold in enumerate(threshold_list):
         scaled_residual_var = (scaled_residual ** 2).sum(axis = 1)
@@ -83,11 +86,11 @@ for n_components_index, n_components in enumerate(n_components_list):
 #print(result_table_individual)
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-plt.imshow(result_table_total_var, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin='lower') # , cmap=plt.cm.ocean
+plt.imshow(result_table_total_var, interpolation = 'nearest', vmin = 0, vmax = 10, aspect = (threshold_list[-1] - threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent = [threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin = 'lower') # , cmap = plt.cm.ocean
 plt.colorbar()
 plt.show()
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
-plt.imshow(result_table_individual, interpolation='nearest', vmin=0, vmax=10, aspect=(threshold_list[-1]-threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin='lower') # , cmap=plt.cm.ocean
+plt.imshow(result_table_individual, interpolation = 'nearest', vmin = 0, vmax = 10, aspect = (threshold_list[-1] - threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent = [threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin = 'lower') # , cmap = plt.cm.ocean
 plt.colorbar()
 plt.show()
