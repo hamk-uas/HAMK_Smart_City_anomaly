@@ -5,10 +5,13 @@ To run this script, need to keep data and the script in the same folder.
 
 Input:    
     data - Time series data without N/A and null value
+         - Contaminated data with manual anomaly
+         - Training data remains anomaly free
 
 Output:
     plot - Histogram for clean data 
          - Sensor data and residual plot with Anomaly
+         - Colour bar plot for total variance and individual variance
 """
 
 import numpy as np
@@ -17,7 +20,6 @@ import warnings
 warnings.filterwarnings("ignore")
 import seaborn as sns
 import matplotlib.pyplot as plt
-#import plotly as ex
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
@@ -29,7 +31,6 @@ cwd = os.getcwd()
 
 # Read the data set from the folder
 data = pd.read_csv('3452_building_data_full_year_copy.csv')
-
 
 # Convert the data type of timestamp column to datatime format
 data['date'] = pd.to_datetime(data['timestamp'])
@@ -45,15 +46,6 @@ df_tempclean = df_tempclean.dropna()
 df_tempclean_train = df_tempclean[(df_tempclean.index >= "2021-12-01") & (df_tempclean.index < "2022-02-16")]
 # Test data
 df_tempclean_test = df_tempclean[(df_tempclean.index >= "2022-02-17") & (df_tempclean.index < "2022-03-16")]
-#label = pd.DataFrame(np.zeros((len(df_tempclean), 1)))
-#label = []
-#for i in df_tempclean["('Temperature_01', 1777)"]:
-#    if i >= 18.0 and i <= 22.0:
-#        label.append(0)
-#    else:
-#        label.append(1)
-
-#print(sum(label))
 
 # Create anomalous data
 anomalous_len = int((len(df_tempclean_test) - 0.30*len(df_tempclean_test)) / 2)  # 30 % of anomalous window to mess up
@@ -75,6 +67,7 @@ names = df_tempclean_train.columns
 x = df_tempclean_train
 # Standardize/scale the dataset and apply PCA
 
+# To see the importance of PC's, need to uncomment below code
 #features = range(pca.n_components_)
 #_ = plt.figure(figsize=(22, 5))
 #_ = plt.bar(features, pca.explained_variance_)
@@ -121,7 +114,6 @@ plt.title('Individual Variance for Train')
 plt.imshow(result_table_individual, interpolation = 'nearest', vmin = 0, vmax = 10, aspect = (threshold_list[-1] - threshold_list[0])/(n_components_list[-1] - n_components_list[0]), extent=[threshold_list[0], threshold_list[-1], n_components_list[0]-0.5, n_components_list[-1]+0.5], origin = 'lower') # , cmap = plt.cm.ocean
 plt.colorbar()
 plt.show()
-
 
 
 for n_components_index, n_components in enumerate(n_components_list):
