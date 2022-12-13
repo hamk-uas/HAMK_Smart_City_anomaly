@@ -10,14 +10,18 @@ Install required python libraries by using requirements.txt
 
 ## Code run
 
-Need to keep data and file in the same folder to run the PCA_anomaly.py or PCA_anomaly_res.py file.
+Need to keep data and file in the same folder to run the Python scripts.
 
 ## Overview of files
 
 *PCA_Anomaly.py - Python script for anomaly detection using PCA and Quartile based method.
+
 *PCA_Anomaly.ipynb - Notebook for identification of anomaly using PCA and Quartile based method. Step-by-step explanation and visualization have performed.
+
 *PCA_Anomaly_res.py - Python script for identification of anomaly using PCA and residual based method.
+
 *PCA_Anomaly_res_tuning.py - Fine tuned code for PCA and residual based method for the identification of anomaly using best components.
+
 *PCA_Anomaly_res_tuning_work.py - PCA and residual based method for anomaly detection trained on clean data and testing on manually contaminated data.
 
 
