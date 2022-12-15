@@ -24,7 +24,11 @@ Need to keep data and file in the same folder to run the Python scripts.
 
 * PCA_Anomaly_res_tuning_work.py - PCA and residual based method for anomaly detection trained on clean data and testing on manually contaminated data.
 
+## Recomendations
 
+* For this kind of specific data, PCA based method is most suitable although depending on the questions that need to be answered, need to be more careful to choose the unsupervised method.
+* For higher dimentional data, it is better to reduce the dimentionality for better outcomes before selecting anomaly detection rules.
+* It will be always good choice to use supervised method, if there exist labels.
 
 ## Author
 
