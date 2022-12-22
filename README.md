@@ -1,6 +1,10 @@
 # HAMK Smart City project - Anomaly detection in HVAC building data.
 This is a repository include Python3 scripts and Python Notebook for anomaly detection in Smart City project. The Smart City project of Häme Universty of Applied Sciences focuses on promoting low-carbon developments through imlementation of Artificial Intelligence. The content of this repository is focused on anomaly detection on heating energy consumption of HVAC system control.
 
+## Introduction
+
+Principal Component Analysis (PCA) is a method for dimensionality-reduction by transforming (Singular Value Decomposition of the data) a large set of variables into a smaller one that still contains most of the information in the large set. The input data is centered but not scaled for each feature before applying the SVD.
+
 ## Installation
 
 Install required python libraries by using requirements.txt
