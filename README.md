@@ -36,7 +36,7 @@ Need to keep data and file in the same folder to run the Python scripts.
 
 ## Author
 
-2022@ Abdur Rahman
+2022 Abdur Rahman
 
 ## Licence
 
