@@ -3,7 +3,12 @@ This is a repository include Python3 scripts and Python Notebook for anomaly det
 
 ## Introduction
 
-Principal Component Analysis (PCA) is a method for dimensionality-reduction by transforming (Singular Value Decomposition of the data) a large set of variables into a smaller one that still contains most of the information in the large set. The input data is centered but not scaled for each feature before applying the SVD.
+Principal Component Analysis (PCA) is a method for dimensionality-reduction by transforming (Singular Value Decomposition of the data) a large set of variables into a smaller one that still contains most of the information in the large set. The input data is centered but not scaled for each feature before applying the SVD. We have used PCA for dimension reduction for the data and after that used residual and quartile based method to define the anomaly range.
+
+
+## Data
+
+Dataset have in the folder of Data as a file 'building_data_full_year_copy.csv'. This is a yearly time series sensor data have temperatures (among other variables) depending on time for hourly basis.
 
 ## Installation
 
