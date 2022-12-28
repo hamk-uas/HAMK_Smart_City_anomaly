@@ -39,9 +39,14 @@ Need to keep data and file in the same folder to run the Python scripts.
 * For higher dimentional data, it is better to reduce the dimentionality for better outcomes before selecting anomaly detection rules.
 * It will be always good choice to use supervised method, if there exist labels.
 
-## Author
+## Authors
 
-2022 Abdur Rahman
+* Abdur Rahman
+* Olli Niemitalo
+
+## Copyright
+
+Copyright 2022, Häme University of Applied Sciences (HAMK), Finland
 
 ## Licence
 
