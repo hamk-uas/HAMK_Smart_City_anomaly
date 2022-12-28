@@ -25,7 +25,7 @@ cwd = os.getcwd()
 
 
 # Read the data set from the folder
-data = pd.read_csv('3452_building_data_full_year_copy.csv')
+data = pd.read_csv('building_data_full_year_copy.csv')
 
 
 # Convert the data type of timestamp column to datatime format
