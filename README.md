@@ -46,7 +46,7 @@ Need to keep data and file in the same folder to run the Python scripts.
 
 ## Copyright
 
-Copyright 2022, Häme University of Applied Sciences (HAMK), Finland
+Copyright 2022-2023, Häme University of Applied Sciences (HAMK), Finland
 
 ## Licence
 
