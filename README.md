@@ -50,4 +50,4 @@ Copyright 2022-2023, Häme University of Applied Sciences (HAMK), Finland
 
 ## Licence
 
-Permissive Apache License 2.0
+Dual licensed under the permissive Apache License 2.0 and MIT licenses.
